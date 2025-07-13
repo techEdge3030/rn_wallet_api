@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import cors from "cors";
 import { initDB } from "./config/db.js";
 import rateLimiter from "./middleware/rateLimiter.js";
 
@@ -15,6 +16,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // middleware
+app.use(cors());
 app.use(express.json());
 app.use(rateLimiter);
 
